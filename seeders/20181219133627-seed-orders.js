@@ -99,23 +99,7 @@ module.exports = {
         }).catch(err => {
             throw err;
         });
-        // Create Order, ORderInfo and Address all at Once
-        /*Order.create({
-            trackingCode: faker.random.some(),
-            userId: user.id,
-            orderInfo: {
-                status: 1,
-                address: {}
-            }
-        }, {
-            include: [
-                {
-                    association: Order.OrderInfo,
-                    include: [OrderInfo.Address]
-                }
-            ]
-        });
-        */
+      
     },
     down:
         (queryInterface, Sequelize) => {

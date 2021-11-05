@@ -65,49 +65,11 @@ module.exports = {
             throw err;
         });
 
-// Role
-        /*  return User.findAll({
-              attributes: ['id'], // Select only User.id
-              include: [
-                  {
-                      model: UserRole,
-                      attributes: ['id'], // select only Role.id
-                      through: {
-                          attributes: ['name'],
-                          where: {name: 'ROLE_ADMIN'}
-                      }
-                  }]
-          }).then(res => {
-              const hashed_password = bcrypt.hashSync(process.env.ADMIN_PASSWORD || 'password', bcrypt.genSaltSync(10));
-              // || bcrypt.hashSync('password', 10),
-              User.create({
-                  first_name: process.env.ADMIN_FNAME || 'admin',
-                  last_name: process.env.ADMIN_LNAME || 'admin',
-                  email: process.env.ADMIN_EMAIL || 'admin',
-                  password: hashed_password
-              });
-          });
 
-      /*
-        Add altering commands here.
-        Return a promise to correctly handle asynchronicity.
-
-        Example:
-        return queryInterface.bulkInsert('People', [{
-          name: 'John Doe',
-          isBetaMember: false
-        }], {});
-      */
     },
 
     down:
         (queryInterface, Sequelize) => {
-            /*
-              Add reverting commands here.
-              Return a promise to correctly handle asynchronicity.
-
-              Example:
-              return queryInterface.bulkDelete('People', null, {});
-            */
+           
         }
 };

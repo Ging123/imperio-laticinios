@@ -28,7 +28,7 @@ exports.register = (req, res) => {
 
             if (user) {
                 const errors = {};
-                // If the user exists, return Error
+               
                 if (user.username === body.username)
                     errors.username = 'username: ' + body.username + ' is already taken';
 
@@ -63,18 +63,17 @@ exports.register = (req, res) => {
 };
 
 exports.login = (req, res) => {
-    // TODO: move this to UserRequestDto
+   
     const username = req.body.username;
     const password = req.body.password;
 
-    // if no email or password then send
+   
     if (!username || !password) {
         res.status(400).send({error: 'You need a email and password'});
         return;
     }
 
-    // check 1: lookup the user if it already exists
-    // check2: compare passwords
+    
     User.findOne({
         where: {username},
         include: [

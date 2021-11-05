@@ -21,9 +21,9 @@ exports.getOrders = function (req, res, next) {
             {
                 model: OrderItem,
                 attributes: ['id',
-                    // [sequelize.fn('count', sequelize.col('order_items.id')), 'orderItemCount']
+                    
                 ],
-                // group: ['order_items.orderId'],
+            
             },
         ],
 
@@ -87,7 +87,7 @@ exports.getOrderDetails = function (req, res, next) {
         path: 'address',
         include: [{
             model: Address,
-            // this is just to show how to load nested relations, normally I would not do this, I would load user from Order for readability
+           
             include: [User]
         }, {
             model: OrderItem,
@@ -101,7 +101,7 @@ exports.getOrderDetails = function (req, res, next) {
     });
 };
 
-// TODO
+
 exports.updateOrder = (req, res, next) => {
     return res.json(AppResponseDto.buildWithErrorMessages('not implemented'));
 };

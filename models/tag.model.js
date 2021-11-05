@@ -23,11 +23,7 @@ module.exports = (sequelize, DataTypes) => {
             beforeValidate: function (tag, options) {
                 tag.slug = slugify(tag.name, {lower: true});
 
-                /*
-                if(user.getRoles().length === 0)
-                    user.setRoles([]);
-                */
-                // cb(null, options);
+               
             }
         }
     });

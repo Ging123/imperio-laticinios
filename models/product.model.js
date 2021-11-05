@@ -4,14 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     const {INTEGER, STRING, DATE, TEXT, DECIMAL, UUID, UUIDV4} = DataTypes;
 
     const Product = sequelize.define('products', {
-        /*      id: {
-                  type: UUID,
-                  defaultValue: UUIDV4,
-                  allowNull: false,
-                  primaryKey: true,
-                  // autoIncrement: true,
-              },
-      */
+        
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -29,11 +22,7 @@ module.exports = (sequelize, DataTypes) => {
         description: {
             type: TEXT,
         },
-        /*
-        price: {
-            type: DataTypes.FLOAT,
-        },
-        */
+       
         price: {
             type: DECIMAL(20, 2),
             allowNull: false,

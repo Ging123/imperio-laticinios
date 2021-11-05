@@ -59,33 +59,7 @@ module.exports = function (sequelize, DataTypes) {
                 user.password = hashed_password;//bcrypt.hashSync(user.pwd, bcrypt.genSaltSync(10), null);
             },
             afterCreate: function (user, options) {
-                /*
-                if (user.roles == null) {
-                    user.getRoles().then(roles => {
-                        if (roles == null || roles.length === 0) {
-                            return this.sequelize.models.roles.findOrCreate({
-                                where: {'name': 'ROLE_USER'},
-                                defaults: {description: 'For standard users'}
-                            }).spread(async (role, created) => {
-                                // user.addRole(role) // or
-                                // user.setRoles([role]) // or
-                                // or
-                                new this.sequelize.models.users_roles({
-                                    roleId: role.id,
-                                    userId: user.id
-                                }).save()
-                                    .then(ur => {
-                                        console.log('attached to ROLE_USER');
-                                    }).catch(err => {
-                                    throw err
-                                });
-                            }).catch(err => {
-                                throw err;
-                            });
-                        }
-                    });
-                }
-                */
+               
             },
         }
     });
@@ -95,15 +69,13 @@ module.exports = function (sequelize, DataTypes) {
         User.hasMany(models.Order);
 
 // http://docs.sequelizejs.com/class/lib/associations/belongs-to-many.js~BelongsToMany.html#instance-method-get
-// user.addRoles, user.countRoles, user.createRole, user.getRoles, user.getRoles, user.removeRole, user.removeRoles, user.setRoles
         User.belongsToMany(models.Role, {through: 'users_roles', foreignKey: 'userId', otherKey: 'roleId'});
-// User.belongsToMany(models.Role, {through: models.UserRole, foreignKey: 'userId', otherKey: 'roleId'});
 
         User.hasMany(models.Comment);
 
         User.hasMany(models.Address,); //{as: 'Addresses'});
 
-// User.belongsToMany(models.Role, {through: 'UserRole'});
+
     };
 
     User.beforeBulkUpdate(user => {

@@ -9,7 +9,6 @@ function buildPagedList(products, page, pageSize, totalResourcesCount, basePath)
         success: true,
         page_meta: PageMetaDto.build(products.length, page, pageSize, totalResourcesCount, basePath),
         ...buildDtos(products),
-        //products: products.map(product => product.getJsonSummary())
     }
 }
 
@@ -35,7 +34,7 @@ function buildDto(product) {
 
 function buildDetails(product, includeCommentUser, includeCommentProductSummary) {
     let product_result = buildDto(product);
-    product_result.comments_count = undefined; // remove comments_count, we are going to display all comments anyway
+    product_result.comments_count = undefined; 
     product_result.description = product.description;
     product_result.likes_count = product.likes_count;
     product_result = {...product_result, ...CommentsDto.buildDtos(product.comments, includeCommentUser, includeCommentProductSummary)};

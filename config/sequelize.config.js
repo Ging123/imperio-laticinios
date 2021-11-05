@@ -11,9 +11,7 @@ const password = process.env.DB_PASSWORD || sequelizeConfig[mode].password || ''
 
 const connectionObject = {
     host: process.env.DB_HOST || sequelizeConfig[mode].host || 'localhost',
-    dialect, // 'mysql'|'sqlite'|'postgres'|'mssql',
-    // operatorsAliases: false,
-    // retry: {max: 10},
+    dialect, 
     pool: {
         max: process.env.DB_POOL_MAX | 5,
         min: process.env.DB_POOL_MIN | 1,

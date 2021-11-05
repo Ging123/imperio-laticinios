@@ -25,25 +25,14 @@ exports.getAll = (req, res, next) => {
             limit: 5,
             order: [
                 ['createdAt', 'DESC'],
-                // ['price', 'DESC']
+              
             ],
-            // [Comment, 'createdAt', 'DESC'],
+           
 
             attributes: ['id', 'name', 'slug', 'price', 'created_at', 'updated_at'
-                // ['publish_on', 'created_at'],
-                // [sequelize.fn('count', sequelize.col('comments.id')), 'commentsCount']
-                // [sequelize.fn('COUNT', sequelize.col('id')), 'productsCount'] // instance.get('productsCount')
-            ], // retrieve publish_on column and report it as created_at javascript attribute
-            // or
-            // attributes: { include: [[sequelize.fn('COUNT', sequelize.col('hats')), 'no_hats']] }
-
-            // attributes: {exclude: ['description']},
+        ],
             include: [
-                /*{
-                    model: Comment,
-                    attributes: []
-                }
-                ,*/ {
+                {
                     model: Tag,
                     exclude: ['description', 'created_at', 'updated_at']
                 }, {
@@ -51,7 +40,6 @@ exports.getAll = (req, res, next) => {
                     attributes: ['id', 'name'],
                 }
             ],
-            // group: ['products.id'],
             offset: (page - 1) * pageSize,
             limit: pageSize,
         }),
@@ -194,7 +182,7 @@ exports.getByCategory = function (req, res, next) {
             {
                 model: Category,
                 where: categoryQuery,
-                // through: {attributes: ['id'],}
+               
             },
             {
                 model: Tag,
@@ -208,7 +196,7 @@ exports.getByCategory = function (req, res, next) {
 
         order: [
             ['createdAt', 'DESC'],
-            // ['price', 'DESC']
+      
         ],
 
         offset,
@@ -237,7 +225,7 @@ exports.createProduct = (req, res) => {
                 defaults: {description}
             }));
         });
-        // another way of doing it without lodash
+      
         Object.keys(categories).forEach(name => {
             promises.push(Category.findOrCreate({
                 where: {name},
@@ -251,9 +239,9 @@ exports.createProduct = (req, res) => {
             const tags = [];
             const categories = [];
             results.forEach(result => {
-                if (result[0].constructor.getTableName() === 'tags') // method 1 of getting table name
+                if (result[0].constructor.getTableName() === 'tags')
                     tags.push(result[0]);
-                else if (result[0]._modelOptions.name.plural === 'categories') // method 2 of getting table name
+                else if (result[0]._modelOptions.name.plural === 'categories')
                     categories.push(result[0]);
             });
 

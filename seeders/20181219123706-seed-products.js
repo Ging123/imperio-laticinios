@@ -24,32 +24,7 @@ module.exports = {
                     productsToSeed -= productsCount;
 
                     const promises = [];
-                    /*
-                                    if (productsCount === 0) {
-                                        productsToSeed--;
-                                        // this ilustrates how to create a Product and Tag simultaneously
-                                        promises.push(Product.create({
-                                            name: faker.commerce.productName(),
-                                            description: faker.lorem.sentences(2),
-                                            // defaults: min => 0, max => 1000, dec => 2, symbol => ''
-                                            price: parseInt(faker.commerce.price(10, 1000, 2)) * 100, // faker.commerce.price() * 100,
-                                            stock: faker.random.number({min: 0, max: 120}),
-                                            tags: [
-                                                {name: 'winter', description: 'Winter cloth'},
-                                                {name: 'sport', description: 'Clothes for sport'}
-                                            ],
-                                            categories: [
-                                                {name: 'skinny', description: 'Skinny people'},
-                                            ],
-                                        }, {
-                                            include: [{
-                                                model: 'Tag', as: 'tags'
-                                            }, {
-                                                model: 'Category', as: 'categories'
-                                            }]
-                                        }));
-                                    }
-                    */
+                
                     for (let i = 0; i < productsToSeed; i++) {
                         promises.push(Product.create({
 

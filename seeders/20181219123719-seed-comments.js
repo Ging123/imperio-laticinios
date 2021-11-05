@@ -11,22 +11,13 @@ module.exports = {
     up: (queryInterface, Sequelize) => {
 
         const promises = [];
-        /*
-        promises.push(Comment.findAndCountAll());
-        promises.push(User.findAll());
-        promises.push(Product.findAll());
-*/
+       
         promises.push(Comment.findAll({attributes: ['id']}));
         promises.push(User.findAll({attributes: ['id']}));
         promises.push(Product.findAll({attributes: ['id']}));
 
         return Promise.all(promises).then(res => {
-            /*const commentsCount = Comment.findAll({
-                attributes: [
-                    [[sequelize.fn('COUNT', sequelize.col('id'))], 'comments_count']
-                ]
-            });
-            */
+         
             promises.length = 0; // clear array to be reused
             const commentsCount = res[0].length;
             const users = res[1];
@@ -59,12 +50,7 @@ module.exports = {
         });
 
         return Promise.all(promises).then(res => {
-            /*const commentsCount = Comment.findAll({
-                attributes: [
-                    [[sequelize.fn('COUNT', sequelize.col('id'))], 'comments_count']
-                ]
-            });
-            */
+          
             const commentsCount = res[0].count;
             const users = res[1];
             const products = res[2];
@@ -76,7 +62,7 @@ module.exports = {
                 promises.push(Comment.create({
                     content: faker.lorem.sentence(),
                     user: users[Math.floor(Math.random() * users.length)],
-                    product: products[Math.floor(Math.random() * products.length)], // faker.commerce.price() * 100,
+                    product: products[Math.floor(Math.random() * products.length)], 
                 }));
             }
 
@@ -85,16 +71,9 @@ module.exports = {
         });
 
 
-        // Comment.findAll({attributes: { include: [[sequelize.fn('COUNT', sequelize.col('id')), 'comments_count']] }});
     },
 
     down: (queryInterface, Sequelize) => {
-        /*
-          Add reverting commands here.
-          Return a promise to correctly handle asynchronicity.
-
-          Example:
-          return queryInterface.bulkDelete('People', null, {});
-        */
+       
     }
 };

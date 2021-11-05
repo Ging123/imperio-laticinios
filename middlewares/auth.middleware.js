@@ -9,7 +9,6 @@ const Role = require('../config/sequelize.config').Role;
 
 
 const readToken = function (req, res, next) {
-    // if the loadoUser middleware has already laoded the user then no need to reload it again
     if (req.user != null)
         return next();
 
@@ -37,9 +36,9 @@ exports.isAdmin = (req, res, next) => {
 const getFreshUser = (required) => {
     return (req, res, next) => {
         if (req.decodedJwt == null || req.decodedJwt.userId == null) {
-            if (required) // no jwt, and it is required
+            if (required) 
                 return res.json(AppResponseDto.buildWithErrorMessages('Permission denied'));
-            else // no jwt, but it is not required
+            else 
                 return next();
         }
         User.findOne({
@@ -47,11 +46,7 @@ const getFreshUser = (required) => {
         })
             .then((user) => {
                 if (!user) {
-                    // if no user is found, but
-                    // it was a valid JWT but didn't decode
-                    // to a real user in our DB. Either the user was deleted
-                    // since the client got the JWT, or
-                    // it was a JWT from some other source
+                    
                     res.status(401).send({error: 'Unauthorized'});
                 } else {
                     // update req.user with fresh user from

@@ -43,7 +43,6 @@ exports.createAddress = function (req, res, next) {
         errors.password = 'Password must not be empty';
 
     if (!_.isEmpty(errors)) {
-        // return res.status(422).json({success: false, errors});
         return res.status(422).json(AppResponseDto.buildWithErrorMessages(errors));
     }
 
