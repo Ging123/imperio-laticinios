@@ -1,0 +1,47 @@
+.default-input-container {
+  position:relative;
+  width:100%;
+}
+
+.default-input-icones {
+  color:gray;
+  font-size:18px;
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+}
+
+.default-input-left-icone {
+  @extend .default-input-icones;
+  left:10px;
+}
+
+.password-eye {
+  @extend .default-input-icones;
+  cursor:pointer;
+  right:15px;
+
+  &:hover {
+    color:#616161;
+  }
+
+  &:active {
+    color:#494949;
+  }
+}
+
+.default-input {
+  background:white;
+  border:1px solid var(--light-gray);
+  border-radius:100px;
+  font: {
+    color:black;
+    size:18px;
+  }
+  padding:10px 35px;
+  width:100%;
+
+  &:focus {
+    outline:1px solid gray;
+  }
+}

@@ -1,0 +1,26 @@
+@import '../../../global/styles/effects.scss';
+
+.main-button-default {
+  border:none;
+  border-radius:100px;
+  box-shadow:1px 1px 5px gray;
+  color:white;
+  font: {
+    size:18px;
+    weight:600;
+  }
+  padding:12px 15px;
+  width:100%;
+}
+
+.main-button {
+  @extend .darker-on-hover-or-click;
+  @extend .main-button-default;
+  background:var(--main-orange); 
+}
+
+.main-button-disable {
+  @extend .main-button-default;
+  background:gray;
+  pointer-events:none;
+}

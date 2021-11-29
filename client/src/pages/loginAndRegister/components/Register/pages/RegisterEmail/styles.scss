@@ -1,0 +1,12 @@
+#first-and-last-name-container {
+  display:flex;
+  flex-direction:row;
+
+  & > .default-input-container {
+    width:50% !important;
+  }
+
+  &:first-child > .default-input-container {
+    margin-right:10px;
+  }
+}

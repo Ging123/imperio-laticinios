@@ -1,0 +1,37 @@
+* {
+  box-sizing:border-box;
+  font-family:arial;
+  margin:0px;
+}
+
+:root {
+  --main-background-color:#f7f7f7;
+  --darker-gray:#808080b2;
+  --light-gray:#dbdbdb;
+  --main-orange:#FF6700;
+}
+
+body {
+  background:var(--main-background-color);
+}
+
+button {
+  cursor:pointer;
+}
+
+//DIRECTIONS
+.flex-row, .flex-column {
+  display:flex;
+}
+
+.flex-row {
+  flex-direction:row;
+}
+
+.flex-column {
+  flex-direction:column;
+}
+
+.block {
+  display:block;
+}

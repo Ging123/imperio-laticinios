@@ -1,0 +1,32 @@
+.social-media-login-container {
+  align-items:center;
+  display:flex;
+  flex-direction:column;
+  width:100%;
+}
+
+.social-media-circle {
+  border-radius:100px;
+  box-shadow:1px 1px 10px #c4c4c4;
+  display:block;
+  height:40px; 
+  position:relative;
+  width:40px;
+
+  &:hover {
+    cursor:pointer;
+    filter:brightness(80%);
+  }
+
+  &:active {
+    filter:brightness(60%);
+  }
+
+  & > .social-media-icone {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    width:20px;
+  }
+}

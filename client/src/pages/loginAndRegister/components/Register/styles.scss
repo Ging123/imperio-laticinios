@@ -1,0 +1,19 @@
+#register-container {
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  width:50%;
+
+  & > .container {
+    width:450px;
+  }
+}
+
+@media(max-width:452px) {
+  #register-container {
+
+    & > .container {
+      width:100%;
+    }
+  }
+}

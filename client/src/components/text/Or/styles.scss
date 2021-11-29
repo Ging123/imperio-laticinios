@@ -1,0 +1,15 @@
+.or-conteiner {
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  width:100%;
+
+  .text {
+    padding:0px 20px;
+  }
+
+  & > .line {
+    border-top:1px solid var(--light-gray);
+    width:50%;
+  }
+}

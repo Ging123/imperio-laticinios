@@ -1,0 +1,31 @@
+.circle-with-icone-default-styles {
+  border:1px solid black;
+  border-radius:100px;
+  height:40px;
+  position:relative;
+  width:40px;
+
+  & > i {
+    left:50%;
+    position:absolute;
+    top:50%;
+    transform:translate(-50%, -50%);
+  }
+}
+
+.circle-with-icone {
+  @extend .circle-with-icone-default-styles;
+
+  & > i {
+    color:white;
+  }
+}
+
+.circle-with-icone-disable {
+  @extend .circle-with-icone-default-styles;
+  background:white !important;
+
+  & > i {
+    color:var(--darker-gray);
+  }
+}
