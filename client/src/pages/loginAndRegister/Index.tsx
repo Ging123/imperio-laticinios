@@ -1,7 +1,7 @@
 import MainContainer from "../../components/containers/MainContainer/Index";
+import ImageSquare from "./components/ImageSquare/Index";
 import Register from "./components/Register/Index";
 import Login from "./components/Login/Index";
-import ImageSquare from "./components/ImageSquare/Index";
 
 const LoginAndRegister = () => {
   return (
@@ -12,5 +12,5 @@ const LoginAndRegister = () => {
     </MainContainer>
   )
 }
-
+ 
 export default LoginAndRegister;

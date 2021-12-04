@@ -1,11 +1,23 @@
 #login-container {
   align-items:center;
+  display:flex;
+  flex-direction:column;
   justify-content:center;
   text-align:center;
   width:50%;
 
   & > .container {
     width:450px;
+  }
+}
+
+@media(max-width:1070px) {
+  #login-container.is-not-open {
+    display:none;
+  }
+
+  #login-container.is-open {
+    width:100%;
   }
 }
 

@@ -4,8 +4,8 @@ import RegisterEmail from './pages/RegisterEmail/Index';
 const Routes = () => {
   return (
     <Switch>
-      <Route exact path='/' render={() => <RegisterEmail/>}/>
       <Route exact path='/register/address'/>
+      <Route path='/' render={() => <RegisterEmail/>}/>
     </Switch>
   );
 }

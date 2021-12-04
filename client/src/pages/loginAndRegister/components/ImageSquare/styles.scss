@@ -1,4 +1,31 @@
 #image-square {
-  position:absolute;
+  background:white;
+  height:100vh;
+  position:fixed;
+  top:0px;
   width:50%;
+  z-index:1;
+  transition:right 1s;
+
+  & > img {
+    height:100%;
+    position:absolute;
+    transition:opacity 1s;
+    width:100%;
+    z-index:1;
+  }
+
+  & > img.hide {
+    opacity:0;
+  }
+
+  & > img.show {
+    opacity:1;
+  }
+}
+
+@media (max-width:1070px) {
+  #image-square {
+    display:none;
+  }
 }

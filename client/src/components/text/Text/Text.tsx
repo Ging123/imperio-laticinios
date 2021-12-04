@@ -6,6 +6,7 @@ interface props {
   color?:string;
   inline?:boolean;
   margin?:string;
+  onClick?:() => void;
   text?:string;
 }
 
@@ -21,8 +22,9 @@ const Text = (props:props) => {
 }
 
 const Div = (props:props, styles:styles) => {
+  const className = `text ${ props.className || '' }`;
   return (
-    <div className={`text ${ props.className || '' }`} style={styles}>
+    <div className={className} onClick={props.onClick} style={styles}>
       {props.text}
       {props.children}
     </div>
@@ -30,8 +32,9 @@ const Div = (props:props, styles:styles) => {
 }
 
 const Span = (props:props, styles:styles) => {
+  const className = `text ${ props.className || '' }`;
   return (
-    <span className={`text ${ props.className || '' }`} style={styles}>
+    <span className={className} onClick={props.onClick} style={styles}>
       {props.text}
       {props.children}
     </span>
