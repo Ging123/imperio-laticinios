@@ -1,7 +1,6 @@
 export default function setImagePosition(path:string) {
-  console.log(path)
-  if(path === '/') return moveImageToRight();
-  if(path === '/register/email') return moveImageToLeft();
+  if(path === '/start') return moveImageToRight();
+  if(path === '/start/register/email') return moveImageToLeft();
 }
 
 const moveImageToRight = () => image().style.right = '0px';

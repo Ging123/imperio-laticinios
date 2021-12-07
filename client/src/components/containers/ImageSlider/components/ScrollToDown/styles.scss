@@ -1,0 +1,20 @@
+.scroll-down-message {
+  bottom:15px;
+  color:white;
+  left:50%;
+  position:absolute;
+  text-align:center;
+  transform:translateX(-50%);
+  transition:opacity .3s ease;
+  z-index:98;
+
+  & > i {
+    margin-top:7px;
+  }
+}
+
+@media (max-height:330px) {
+  .scroll-down-message {
+    display:none;
+  }
+}

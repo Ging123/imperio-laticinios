@@ -14,6 +14,7 @@ comandos:
 npm install
 npx sequelize-cli db:migrate
 npm run start
+npx sequelize-cli db:seed:all
 ```
 - npm install
 Esse comando irá instalar todas as dependências do projeto
@@ -22,5 +23,8 @@ Esse comando irá instalar todas as dependências do projeto
 Esse comando irá criar todas as tabelas que a api vai usar, já configuradas no seu mysql
 
 - npm run start
-Inicia a api utilizando o nodemon. O nodemon atualiza o servidor local automaticamente
-sempre que alguma mudança no código for salva
+Inicia a api utilizando o nodemon. O nodemon atualiza o servidor local 
+automaticamente sempre que alguma mudança no código for salva
+
+- npx sequelize-cli db:seed:all
+Cria vários rows em cada table para testes

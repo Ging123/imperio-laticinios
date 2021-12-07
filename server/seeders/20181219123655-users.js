@@ -1,7 +1,6 @@
 'use strict';
 const faker = require('faker');
 const User = require('./../config/sequelize.config').User;
-
 const Role = require('./../config/sequelize.config').Role;
 const UserRole = require('./../config/sequelize.config').UserRole;
 

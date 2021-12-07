@@ -1,0 +1,24 @@
+.product-body-container {
+  align-items:center;
+  border-top:1px solid gray;
+  color:var(--light-black);
+  display:flex;
+  flex-direction:column;
+  padding-top:15px;
+
+  .name {
+    font: {
+      size:20px;
+      weight:600;
+    }
+    text-align:center;
+    text-transform:capitalize;
+  }
+
+  .description {
+    font-size:14px;
+    text-align:center;
+    margin:10px 0px;
+    text-transform:capitalize;
+  }
+}

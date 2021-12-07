@@ -1,0 +1,25 @@
+.container-of-image-to-slide {
+  alt:'Não foi possivel carregar essa imagem :(';
+  background-size:cover;
+  background-position:center;
+  height:100%;
+  image-rendering: optimizeQuality;
+  position:absolute;
+  height:100%;
+  width:100%;
+}
+
+.container-of-image-to-slide.show {
+  left:0px;
+  transition:left .8s ease;
+  z-index:98;
+}
+
+.container-of-image-to-slide.must-hide {
+  z-index:97;
+}
+
+.container-of-image-to-slide.hide {
+  left:100%;
+  z-index:97;
+}

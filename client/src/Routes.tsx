@@ -1,13 +1,20 @@
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
-import { Switch, Route } from 'react-router-dom';
 
-const LoginAndRegister = lazy(() => import('../src/pages/loginAndRegister/Index'));
+const LoginAndRegister = lazy(() => import('./pages/loginAndRegister/Index'));
+const Products = lazy(() => import('./pages/Products/Index'));
+const Admin = lazy(() => import('./pages/Admin/Index'));
 
 const Pages = () => {
   return (
     <Switch>
       <Suspense fallback={<div>Carregando...</div>}>
-        <Route path='/' render={() => <LoginAndRegister/>}/> 
+        <Route exact path='/admin' render={() => <Admin/>}/>
+        <Route exact path='/products' render={() => <Products/>}/> 
+        <Route path='/start' render={() => <LoginAndRegister/>}/>
+        <Route exact path='/'>
+          <Redirect exact from='/' to='/start'/>
+        </Route> 
       </Suspense>
     </Switch>
   ) 

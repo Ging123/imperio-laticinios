@@ -1,0 +1,19 @@
+.image-slider {
+  box-shadow:1px 1px 10px gray;
+  height:100vh;
+  overflow:hidden;
+  position:relative;
+  width:100%;
+
+  #image-1 {
+    background-image:url('./images/laticinios.jpg');
+  }
+
+  #image-2 {
+    background-image:url('./images/laticinios2.jpg');
+  }
+
+  #image-3 {
+    background-image:url('./images/laticinios3.jpg');
+  }
+}

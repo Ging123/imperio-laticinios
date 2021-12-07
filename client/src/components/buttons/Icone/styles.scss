@@ -1,0 +1,21 @@
+.icone {
+  font-size:20px;
+}
+
+@media (max-width:550px) {
+  .icone {
+    font-size:18px;
+  }
+}
+
+@media (max-width:470px) {
+  .icone {
+    font-size:16px;
+  }
+}
+
+@media (max-width:400px) {
+  .icone {
+    font-size:12px;
+  }
+}

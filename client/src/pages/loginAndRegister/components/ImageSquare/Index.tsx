@@ -12,11 +12,11 @@ const ImageSquare = () => {
   useEffect(() => { window.requestAnimationFrame(changeImageAfterATime)} , []);
   useEffect(() => { setImagePosition(location.pathname) }, [location]);
   return createPortal ( 
-    <>
+    <div id='image-square'>
       <Modal background="#ff66008f"/>
       <Images/>
-    </>,
-    document.getElementById('image-square')! 
+    </div>,
+    document.getElementById('image-square-container')! 
   );
 }
 

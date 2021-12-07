@@ -1,0 +1,17 @@
+.select-tags {
+  position: relative;
+  background:transparent;
+  font-size:18px;
+  outline:none;
+  padding:10px 15px;
+
+  &:hover {
+    cursor:pointer;
+  }
+}
+
+@media (max-width:500px) {
+  .select-tags {
+    width:100%;
+  }
+}

@@ -1,0 +1,9 @@
+.quantity-of-products-found {
+  font-size:16px;
+}
+
+@media (max-width:500px) {
+  .quantity-of-products-found {
+    display:none;
+  }
+}

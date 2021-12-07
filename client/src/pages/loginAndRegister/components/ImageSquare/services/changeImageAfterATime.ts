@@ -3,9 +3,17 @@ var currentImageOpen = 0;
 const timeLimit = 800;
 
 export default function changeImageAfterATime() {
+  if(IsNotInLoginOrRegisterPages()) return;
   countOneMillisecond();
   if(time === timeLimit) changeImage();
   callback();
+}
+
+function IsNotInLoginOrRegisterPages() {
+  const currentPath = window.location.pathname;
+  if(currentPath === '/start') return false;
+  if (currentPath === '/start/register/email') return false;
+  return true; 
 }
 
 const countOneMillisecond = () => time++;

@@ -1,7 +1,5 @@
 'use strict';
-
 const faker = require('faker');
-
 const Comment = require('./../config/sequelize.config').Comment;
 const User = require('./../config/sequelize.config').User;
 const Product = require('./../config/sequelize.config').Product;

@@ -51,7 +51,7 @@ Todos os componentes do react criados nesse repositorio seguem o seguinte padrã
   - styles.scss (se necessário)
   - services(se necessário)
 
-obs:O nome da pasta **Deve ser o nome do componente**
+obs: O nome da pasta **Deve ser o nome do componente**
 
 1. Index.ts
 Aqui é onde está todo o código react

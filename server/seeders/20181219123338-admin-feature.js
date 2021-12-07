@@ -21,7 +21,7 @@ module.exports = {
                         firstName: process.env.ADMIN_FNAME || 'admin',
                         lastName: process.env.ADMIN_LNAME || 'admin',
                         email: process.env.ADMIN_EMAIL || 'admin@sequelizeblog.com',
-                        password: 'password'
+                        password: process.env.ADMIN_PASSWORD || 'password'
                     }
                 }).spread((user, created) => {
                     const isAdmin = user.isAdminSync();

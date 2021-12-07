@@ -1,7 +1,7 @@
 import MainContainer from "../../components/containers/MainContainer/Index";
 import ImageSquare from "./components/ImageSquare/Index";
-import Register from "./components/Register/Index";
-import Login from "./components/Login/Index";
+import Register from "./pages/Register/Index";
+import Login from "./pages/Login/Index";
 
 const LoginAndRegister = () => {
   return (

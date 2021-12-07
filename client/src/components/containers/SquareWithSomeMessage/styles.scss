@@ -1,0 +1,17 @@
+.square-with-some-message {
+  background:#000000b9;
+  border-radius:6px;
+  box-shadow:1px 1px 10px black;
+  color:white;
+  font: {
+    size:14px;
+    weight:600;
+  }
+  left:50%;
+  transform:translateX(-50%);
+  top:15px;
+  padding:15px;
+  pointer-events:none;
+  position:fixed;
+  z-index:100;
+}
