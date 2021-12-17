@@ -11,16 +11,19 @@ const FormToLogin = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const history = useHistory();
-  const goToProductPage = () => history.push('/product');
+  const goToProductPage = () => history.push('/products');
+  const goToAdminPage = () => history.push('/admin/orders');
 
   async function send(e:FormEvent) {
     try {
       setLoading(true);
       e.preventDefault();
       const request = new Request();
-      await request.login(username, password)
+      const user = await request.login(username, password);
       setError('');
       setLoading(false);
+      if(!user.roles.length) return goToProductPage();
+      if(user.roles[0] === 'ROLE_ADMIN') return goToAdminPage();
       goToProductPage();
     }
     catch(err:any) {

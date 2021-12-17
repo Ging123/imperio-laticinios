@@ -9,7 +9,7 @@ const Pages = () => {
   return (
     <Switch>
       <Suspense fallback={<div>Carregando...</div>}>
-        <Route exact path='/admin' render={() => <Admin/>}/>
+        <Route path='/admin' render={() => <Admin/>}/>
         <Route exact path='/products' render={() => <Products/>}/> 
         <Route path='/start' render={() => <LoginAndRegister/>}/>
         <Route exact path='/'>

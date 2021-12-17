@@ -2,20 +2,23 @@ const jwt = require('jsonwebtoken');
 const expressJwt = require('express-jwt');
 const AppResponseDto = require('../dtos/responses/app_response.dto');
 
-const checkToken = expressJwt({secret: process.env.JWT_SECRET || 'JWT_SUPER_SECRET', userProperty: 'decodedJwt', algorithms: ['RS256']});
+const checkToken = expressJwt({
+     secret: process.env.JWT_SECRET || 'JWT_SUPER_SECRET',
+     userProperty: 'decodedJwt', 
+     algorithms: ['RS256']
+});
 
 const User = require('../config/sequelize.config').User;
 const Role = require('../config/sequelize.config').Role;
 
-
 const readToken = function (req, res, next) {
     if (req.user != null)
         return next();
-
     if (req.hasOwnProperty('headers') && req.headers.hasOwnProperty('authorization')
         && req.headers.authorization.split(' ')[0] === 'Bearer' ||
         req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Token') {
-        checkToken(req, res, next);
+            checkToken(req, res, next);
+            console.log(checkToken(req, res, next))
     } else {
         return next();
     }
@@ -46,7 +49,6 @@ const getFreshUser = (required) => {
         })
             .then((user) => {
                 if (!user) {
-                    
                     res.status(401).send({error: 'Unauthorized'});
                 } else {
                     // update req.user with fresh user from

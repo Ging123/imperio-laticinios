@@ -1,0 +1,24 @@
+.admin-header {
+  align-items:center;
+  background:#000000dc;
+  color:white;
+  display:flex;
+  flex-direction:row;
+  font-size:20px;
+  justify-content:space-between;
+  padding:20px;
+  position:fixed;
+  top:0px;
+  width:100%;
+  z-index: 100;
+}
+
+.products-and-orders {
+  align-items:center;
+  display:flex;
+  justify-content:center;
+}
+
+.products-and-orders > div:first-child {
+  margin-right:30px;
+}

@@ -8,7 +8,10 @@ import "./styles.scss";
 
 const Header = () => {
   useEffect(() => {
-    window.addEventListener('scroll', changeColorWhenNeeded)
+    window.addEventListener('scroll', changeColorWhenNeeded);
+    return () => {
+      window.removeEventListener('scroll', changeColorWhenNeeded);
+    }
   }, []);
 
   return (

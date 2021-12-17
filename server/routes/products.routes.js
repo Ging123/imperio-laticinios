@@ -17,10 +17,10 @@ router.get('/by_tag_id/:tagId', productsController.getByTag);
 router.get('/by_category/:category_slug', productsController.getByCategory);
 router.get('/by_category_id/:categoryId', productsController.getByCategory);
 
-router.post('', AuthMiddleware.mustBeAuthenticated, AuthMiddleware.isAdmin, productsController.createProduct);
-router.put('/:product', AuthMiddleware.mustBeAuthenticated, AuthMiddleware.isAdmin, productsController.updateProduct);
+router.post('', /*AuthMiddleware.mustBeAuthenticated, AuthMiddleware.isAdmin,*/ productsController.createProduct);
+router.put('/:product', /*AuthMiddleware.mustBeAuthenticated, AuthMiddleware.isAdmin,*/ productsController.updateProduct);
 
-router.delete('/:product_load_ids', AuthMiddleware.mustBeAuthenticated, AuthMiddleware.isAdmin, productsController.deleteProduct);
-router.delete('/by_id/:product_load_ids', AuthMiddleware.mustBeAuthenticated, AuthMiddleware.isAdmin, productsController.deleteProduct);
+router.delete('/:product_load_ids', /*AuthMiddleware.mustBeAuthenticated, AuthMiddleware.isAdmin,*/ productsController.deleteProduct);
+router.delete('/by_id/:product_load_ids', /*AuthMiddleware.mustBeAuthenticated, AuthMiddleware.isAdmin,*/ productsController.deleteProduct);
 
 module.exports = router;
