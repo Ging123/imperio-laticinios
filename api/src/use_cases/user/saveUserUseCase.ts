@@ -8,6 +8,9 @@ export default class SaveUserUseCase extends Base {
     this.validateEmail(email);
     this.validateUsername(username);
     this.validatePassword(password);
+    await this.verifyIfEmailAlredyExists(email);
+    await this.verifyIfUsernameAlredyExists(username);
+    await this.user.insert(email, username, password);
   }
 
   private validateEmail(email:string) {
@@ -34,5 +37,17 @@ export default class SaveUserUseCase extends Base {
     if(!password) throw exception(passwordEmpty);
     if(password.length > 30) throw exception(passwordLengthGreaterThanMax);
     if(password.length < 7) throw exception(passwordShorterThanMin);
+  }
+
+  private async verifyIfEmailAlredyExists(email:string) {
+    const emailExists = await this.user.findOneByEmail(email);
+    const emailAlredyExists = 'Esse email já está sendo utilizado';
+    if(emailExists) throw exception(emailAlredyExists);
+  }
+
+  private async verifyIfUsernameAlredyExists(username:string) {
+    const usernameExists = await this.user.findOneByUsername(username);
+    const usernameAlredyExists = 'Esse nome de usuário já está sendo utilizado';
+    if(usernameExists) throw exception(usernameAlredyExists);
   }
 }

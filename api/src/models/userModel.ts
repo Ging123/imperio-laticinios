@@ -34,4 +34,18 @@ export default class UserModel {
       password:password,
     });
   }
+
+  public findOneByEmail(email:string) {
+    return new Promise(async (sucess) => {
+      await this.userModel.findOne({ email:email })
+      .then((user) => sucess(user));
+    });
+  }
+
+  public findOneByUsername(username:string) {
+    return new Promise(async (sucess) => {
+      await this.userModel.findOne({ username:username })
+      .then((user) => sucess(user));
+    });
+  }
 }
