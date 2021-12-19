@@ -15,7 +15,7 @@ route.post('/', authUser, authAdmin, async (req:any, res) => {
     const product = new InsertUseCase();
     await product.save({
       name:req.body.name,
-      quantity:req.body.quanty,
+      quantity:req.body.quantity,
       description:req.body.description,
       tag:req.body.tag,
       price:req.body.price
@@ -28,16 +28,16 @@ route.post('/', authUser, authAdmin, async (req:any, res) => {
   }
 });
 
-route.put('/', authUser, async (req:any, res) => {
+route.put('/', authUser, authAdmin, async (req:any, res) => {
   try {
     const product = new UpdateUseCase();
     await product.update({
       name:req.body.name,
-      quantity:req.body.quanty,
+      quantity:req.body.quantity,
       description:req.body.description,
       tag:req.body.tag,
       price:req.body.price
-    });
+    }, req.body.oldName);
     res.status(200).send();
   }
   catch(err:any) {

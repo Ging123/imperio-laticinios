@@ -15,8 +15,8 @@ export default class ProductRepository extends ProductModel {
     await productData.save();
   }
 
-  public async update(product:product) {
-    return await this.updateProduct(product);
+  public async update(product:product, oldName:string) {
+    return await this.updateProduct(product, oldName);
   }
 
   public async delete(productName:string) {

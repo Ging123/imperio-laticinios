@@ -22,8 +22,8 @@ const FormToLogin = () => {
       const user = await request.login(username, password);
       setError('');
       setLoading(false);
-      if(user.role === 'user') return goToProductPage();
-      if(user.role === 'admin') return goToAdminPage();
+      if(user.data.role === 'user') return goToProductPage();
+      if(user.data.role === 'admin') return goToAdminPage();
       goToProductPage();
     }
     catch(err:any) {

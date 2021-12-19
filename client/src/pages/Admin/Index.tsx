@@ -3,7 +3,6 @@ import Routes from './Routes';
 import './styles.scss';
 
 const Admin = () => {
-  document.title = 'Gerenciar';
   
   return (
     <>

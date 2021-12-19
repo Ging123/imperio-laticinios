@@ -73,9 +73,9 @@ export default class ProductModel {
     });
   }
 
-  protected updateProduct(product:product) {
+  protected updateProduct(product:product, oldName:string) {
     return new Promise(async (sucess) => {
-      const query = {name:product.name};
+      const query = {name:oldName};
       await this.productModel.updateOne(query, {$set:product})
       .then((productUpdated) => sucess(productUpdated))
     });

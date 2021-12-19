@@ -19,8 +19,9 @@ export default class Request {
   public async login(emailOrUsername:string, password:string) {
     this.validate(emailOrUsername, password);
     const data = { emailOrUsername:emailOrUsername, password:password };
-    const user:any = await axios.post(this.url, data)
+    const user:any = await axios.post(this.url, data, { withCredentials: true })
     .catch((err) => {
+      console.log(err)
       const error = JSON.parse(err.request.response);
       throw error;
     });

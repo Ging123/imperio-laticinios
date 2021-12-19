@@ -13,3 +13,5 @@ existem instruções mais detalhadas sobre como se fazer isso.
 - React js
 - Express js
 - Mongo db
+
+{ withCredentials: true }

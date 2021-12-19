@@ -8,16 +8,20 @@ import cors from 'cors';
 const session = require('express-session')
 const app = express();
 const port = 8000;
+const store = new session.MemoryStore();
 
 //MIDDLEWARES
 app.use(cors({
-  origin:process.env.CLIENT_URL! 
+  origin:process.env.CLIENT_URL!,
+  credentials:true
 }));
 app.use( 
   session({
     secret: process.env.SESSION_SECRET!,
-    resave: false,
-    saveUninitialized: true
+    name: 'cookie',
+    resave: true,
+    saveUninitialized: true,
+    store: store
   })
 )
 app.use(bodyParser.json());
