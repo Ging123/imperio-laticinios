@@ -47,8 +47,9 @@ export default class Base {
     throw exception(invalidTag);
   }
 
-  protected validateProductDescription(description:string) {
+  protected validateProductDescription(description?:string) {
     const descriptionLengthGreaterThanMax = 'Descrição só pode ter no máximo 100 caracteries';
+    if(!description) return;
     if(description.length > 100) throw exception(descriptionLengthGreaterThanMax);
   }
 }
