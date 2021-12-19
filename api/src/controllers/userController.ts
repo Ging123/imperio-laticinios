@@ -2,6 +2,7 @@ import { verifyIfIsAnInternalException } from '../util/exceptions';
 import SaveUserUseCase from '../use_cases/user/saveUserUseCase';
 import LoginUseCase from '../use_cases/user/loginUseCase';
 import express from 'express';
+import authUser from '../middlewares/auth';
 
 const route = express.Router();
 
@@ -32,6 +33,33 @@ route.post('/login', async (req:any, res) => {
     );
     req.session.user = userData;
     res.status(200).send(); 
+  }
+  catch(err:any) {
+    err = verifyIfIsAnInternalException(err);
+    res.status(err.status).json(err.message);
+  }
+});
+
+//METHOD TO GET AN USER
+route.get('/', authUser, async (req:any, res) => {
+  try {
+    res.status(200).json({
+      email:req.session.user.email,
+      username:req.session.user.username,
+      role:req.session.user.role
+    }); 
+  }
+  catch(err:any) {
+    err = verifyIfIsAnInternalException(err);
+    res.status(err.status).json(err.message);
+  }
+});
+
+//METHOD TO LOGOUT AN USER
+route.delete('/logout', authUser, async (req:any, res) => {
+  try {
+    req.session.destroy();
+    res.status(204).send(); 
   }
   catch(err:any) {
     err = verifyIfIsAnInternalException(err);

@@ -22,6 +22,10 @@ export default class UserModel {
       type:String,
       required:true,
       maxlength:100
+    },
+    role: {
+      type:String,
+      required:true
     }
   });
 
@@ -32,6 +36,7 @@ export default class UserModel {
       email:email,
       username:username,
       password:password,
+      role:"user"
     });
   }
 
