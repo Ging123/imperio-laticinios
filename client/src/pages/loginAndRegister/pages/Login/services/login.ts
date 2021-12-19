@@ -14,28 +14,17 @@ interface userData {
 
 export default class Request {
 
-  private readonly url = `${config.API_HOST}api/users/login`;
+  private readonly url = `${config.API_HOST}user/login`;
 
-  public async login(username:string, password:string) {
-    let user:any;
-    let error:string='';
-    this.validate(username, password);
-    await axios.post(this.url, { username:username, password:password })
-    .then((response:any) => {
-      if(!response.data.success) {
-        error = response.data.full_messages[0];
-      }
-      else {
-        user = response.data.user;
-        this.saveUser(response.data.user)
-      }
-    })
-    .catch((err:any) => {
+  public async login(emailOrUsername:string, password:string) {
+    this.validate(emailOrUsername, password);
+    const data = { emailOrUsername:emailOrUsername, password:password };
+    const user:any = await axios.post(this.url, data)
+    .catch((err) => {
       const error = JSON.parse(err.request.response);
-      throw error.full_messages[0];
+      throw error;
     });
-    if(error) throw error;
-    return await user;
+    return user;
   }
  
   private validate(username:string, password:string) {

@@ -11,9 +11,9 @@ const port = 8000;
 
 //MIDDLEWARES
 app.use(cors({
-  origin:process.env.CLIENT_URL!
+  origin:process.env.CLIENT_URL! 
 }));
-app.use(
+app.use( 
   session({
     secret: process.env.SESSION_SECRET!,
     resave: false,

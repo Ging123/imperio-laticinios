@@ -10,8 +10,6 @@ import "./styles.scss";
 
 const RegisterEmail = () => {
   const history = useHistory();
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -24,7 +22,7 @@ const RegisterEmail = () => {
       e.preventDefault();
       setLoading(true);
       const request = new Request();
-      await request.registerEmail(firstName, lastName, email, username, password);
+      await request.registerEmail(email, username, password);
       goBackToLoginPage({history, setError, setSuccess});
     }
     catch(err:any) {
@@ -37,22 +35,6 @@ const RegisterEmail = () => {
 
   return (
     <form id='email-form' onSubmit={async (e) => await send(e)}>
-      <div id='first-and-last-name-container'>
-        <DefaultInput
-          leftIconeClass='fas fa-user'
-          maxLength={50}
-          onChange={(e) => setFirstName(e.target.value)}
-          placeholder='Nome'
-          value={firstName}
-        />
-        <DefaultInput
-          leftIconeClass='fas fa-user'
-          maxLength={50}
-          onChange={(e) => setLastName(e.target.value)}
-          placeholder='Sobrenome'
-          value={lastName}
-        />
-      </div>
       <DefaultInput
         leftIconeClass='fas fa-at'
         margin='10px 0px'

@@ -5,7 +5,7 @@ interface config {
 }
 
 const config:config = {
-  API_HOST:'http://localhost:5000/',
+  API_HOST:'http://localhost:8000/',
   CLIENT_HOST:'http://localhost:3000/',
   MODE:'DEV'
 }

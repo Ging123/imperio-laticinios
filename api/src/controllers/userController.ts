@@ -32,7 +32,12 @@ route.post('/login', async (req:any, res) => {
       req.body.password
     );
     req.session.user = userData;
-    res.status(200).send(); 
+    res.status(200).json({
+      id:req.session.user._id,
+      email:req.session.user.email,
+      username:req.session.user.username,
+      role:req.session.user.role
+    }); 
   }
   catch(err:any) {
     err = verifyIfIsAnInternalException(err);
