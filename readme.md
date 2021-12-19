@@ -6,4 +6,10 @@ Esse é um projeto do tcc no curso de desenvolvimento de sistemas do senai, o ob
 ## COMO SE USAR
 Para se levantar essa aplicação, é necessario que se levante dois servidores, um 
 para a api e outro para o client, dentro da pasta **api** e na pasta **client** 
-existem instruções mais detalhadas sobre como se fazer isso
+existem instruções mais detalhadas sobre como se fazer isso.
+
+## TECNOLOGIAS USADAS
+- Typscript
+- React js
+- Express js
+- Mongo db
