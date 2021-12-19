@@ -46,4 +46,15 @@ export default class OrderModel {
       address:order.address
     });
   }
+
+  public find() {
+    return new Promise(async (sucess) => {
+      await this.orderModel.find({})
+      .then((orders) => sucess(orders));
+    });
+  }
+
+  public async delete(id:string) {
+    await this.orderModel.deleteOne({_id:id});
+  }
 }

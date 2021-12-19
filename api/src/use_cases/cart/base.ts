@@ -7,6 +7,6 @@ export interface product {
 
 export default class Base {
 
-  protected cart = new CartRepository();
+  protected readonly cart = new CartRepository();
 
 }

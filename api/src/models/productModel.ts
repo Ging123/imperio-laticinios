@@ -55,21 +55,21 @@ export default class ProductModel {
   public findOneByName(name:string) {
     return new Promise(async (sucess) => {
       await this.productModel.findOne({ name:name })
-      .then((user) => sucess(user));
+      .then((product) => sucess(product));
     });
   }
 
   public find() {
     return new Promise(async (sucess) => {
       await this.productModel.find({})
-      .then((user) => sucess(user));
+      .then((product) => sucess(product));
     });
   }
 
   public findByTag(tagName:tag) {
     return new Promise(async (sucess) => {
       await this.productModel.find({tag:tagName})
-      .then((user) => sucess(user));
+      .then((product) => sucess(product));
     });
   }
 

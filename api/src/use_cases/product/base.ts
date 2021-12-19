@@ -13,7 +13,7 @@ export interface product {
 
 export default class Base {
 
-  protected product = new ProductRepository();
+  protected readonly product = new ProductRepository();
 
   protected validateProductName(name:string) {
     const productNameEmpty = 'Campo de nome do produto não foi preenchido';

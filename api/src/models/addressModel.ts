@@ -30,7 +30,7 @@ export default class AddressModel {
   public findOneByUsernameOfTheOwner(usernameOfTheOwner:string) {
     return new Promise(async (sucess) => {
       await this.addressModel.findOne({ usernameOfTheOwner:usernameOfTheOwner })
-      .then((user) => sucess(user));
+      .then((address) => sucess(address));
     });
   } 
 }

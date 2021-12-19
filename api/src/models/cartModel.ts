@@ -35,14 +35,14 @@ export default class CartModel {
   public findByOwner(username:string) {
     return new Promise(async (sucess) => {
       await this.cartModel.findOne({ usernameOfOwner:username })
-      .then((user) => sucess(user));
+      .then((cart) => sucess(cart));
     });
   }
 
   public find() {
     return new Promise(async (sucess) => {
       await this.cartModel.find({})
-      .then((user) => sucess(user));
+      .then((cart) => sucess(cart));
     });
   }
 }
