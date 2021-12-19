@@ -48,4 +48,13 @@ export default class UserModel {
       .then((user) => sucess(user));
     });
   }
+
+  public findOneByEmailOrUsername(emailOrUsername:string) {
+    return new Promise(async (sucess) => {
+      await this.userModel.findOne({ 
+        $or: [ {email:emailOrUsername}, {username:emailOrUsername} ]
+      })
+      .then((user) => sucess(user));
+    });
+  }
 }

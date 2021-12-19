@@ -1,5 +1,6 @@
 import { verifyIfIsAnInternalException } from '../util/exceptions';
 import SaveUserUseCase from '../use_cases/user/saveUserUseCase';
+import LoginUseCase from '../use_cases/user/loginUseCase';
 import express from 'express';
 
 const route = express.Router();
@@ -14,6 +15,23 @@ route.post('/', async (req, res) => {
       req.body.password
     );
     res.status(201).send();
+  }
+  catch(err:any) {
+    err = verifyIfIsAnInternalException(err);
+    res.status(err.status).json(err.message);
+  }
+});
+
+//METHOD TO LOGIN
+route.post('/login', async (req:any, res) => {
+  try {
+    const user = new LoginUseCase();
+    const userData = await user.login(
+      req.body.emailOrUsername,
+      req.body.password
+    );
+    req.session.user = userData;
+    res.status(200).send(); 
   }
   catch(err:any) {
     err = verifyIfIsAnInternalException(err);
