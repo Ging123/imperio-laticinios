@@ -44,6 +44,7 @@ route.post('/login', async (req:any, res) => {
 route.get('/', authUser, async (req:any, res) => {
   try {
     res.status(200).json({
+      id:req.session.user._id,
       email:req.session.user.email,
       username:req.session.user.username,
       role:req.session.user.role

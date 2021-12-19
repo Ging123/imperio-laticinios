@@ -20,11 +20,13 @@ export default class UserModel {
     },
     password: {
       type:String,
+      index:true,
       required:true,
       maxlength:100
     },
     role: {
       type:String,
+      index:true,
       required:true
     }
   });
