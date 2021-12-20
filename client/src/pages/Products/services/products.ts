@@ -6,7 +6,7 @@ export default class Product {
   private readonly url = `${config.API_HOST}api/products`;
 
   public async get() {
-    await axios.get(this.url)
+    await axios.get(this.url, {withCredentials:true})
     .then((response:any) => {
       console.log(response.data);
     })

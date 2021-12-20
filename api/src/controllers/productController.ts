@@ -70,10 +70,10 @@ route.get('/', authUser, async (req:any, res) => {
   }
 });
 
-route.get('/byTag', authUser, async (req:any, res) => {
+route.post('/byTag', authUser, async (req:any, res) => {
   try {
     const product = new GetByTagUseCase();
-    const productsFound = await product.getByTag(req.body.name);
+    const productsFound = await product.getByTag(req.body.tag);
     res.status(200).json(productsFound);
   }
   catch(err:any) {

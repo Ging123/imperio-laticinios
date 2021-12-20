@@ -30,6 +30,4 @@ const MockProducts = () => {
   );
 }
 
-
-
 export default MockProducts;

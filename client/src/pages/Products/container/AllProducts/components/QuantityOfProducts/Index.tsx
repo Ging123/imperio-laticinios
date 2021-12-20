@@ -1,8 +1,6 @@
-import getQuantity from './services/getQuantity';
 import './styles.scss';
 
-const QuantityOfProducts = () => {
-  const quantity = getQuantity();
+const QuantityOfProducts = ({quantity}:{quantity:number}) => {
 
   return (
     <div className="quantity-of-products-found">

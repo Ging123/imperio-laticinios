@@ -2,31 +2,31 @@ export default function tableColumns() {
   return [
     {
       cellStyle:{ background:"#f7f7f7" },
-      field:"Produto", 
+      field:"product", 
       headerStyle:{ background:"#f7f7f7" },
       title:"Produto"
     },
     {
       cellStyle:{ background:"#f7f7f7" },
-      field:"Preço",
+      field:"price",
       headerStyle:{ background:"#f7f7f7" },
       title:"Preço"
     },
     { 
       cellStyle:{ background:"#f7f7f7" },
-      field:"Quantidade",
+      field:"quantity",
       headerStyle:{ background:"#f7f7f7" },
       title:"Quantidade"
     },
     {
       cellStyle:{ background:"#f7f7f7" },
-      field:"Cliente",
+      field:"client",
       headerStyle:{ background:"#f7f7f7" },
       title:"Cliente"
     },
     { 
       cellStyle:{ background:"#f7f7f7" },
-      field:"Endereço",
+      field:"address",
       headerStyle:{ background:"#f7f7f7" },
       title:"Endereço"
     }

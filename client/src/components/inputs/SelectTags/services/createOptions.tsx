@@ -1,3 +1,6 @@
 export default function createOptions(tag:string, index:number) {
-  return <option key={index} value={tag}>{tag}</option>
+  let currentTag = tag;
+  if(currentTag !== 'requeijão') currentTag += 's';
+  else currentTag = 'requeijões'; 
+  return <option key={index} value={tag}>{currentTag}</option>
 }

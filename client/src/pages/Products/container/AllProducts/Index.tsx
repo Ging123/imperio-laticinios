@@ -1,23 +1,43 @@
 import SelectTags from '../../../../components/inputs/SelectTags/Index';
 import QuantityOfProducts from './components/QuantityOfProducts/Index';
-import MockProducts from './components/MockProducts/Index';
-import getTags from './services/getTags';
-import { useState } from 'react';
-import './styles.scss';
+import getProductByTagName from './services/getProductByTagName';
 import Title from '../../../../components/text/Title/Index';
+import MockProducts from './components/MockProducts/Index';
+import { useHistory } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import getTitle from './services/getTitle';
+import './styles.scss';
+import Products from './components/Products/Index';
 
 const AllProducts = () => {
-  let tags = getTags();
-  const [tag, setTag] = useState(tags[0]);
+  const [tag, setTag] = useState('queijo');
+  const [products, setProducts] = useState<any>([])
+  const tags = ['queijo', 'manteiga', 'leite', 'requeijão', 'iorgute'];
+  const title = getTitle(tag);
+  const history = useHistory();
+  const goToLoginPage = () => history.push('/');
+  const goToProductPage = () => history.push('/products');
+
+  useEffect(() => {
+    (async () => {
+      await getProductByTagName(tag)
+      .then((productsFound) => setProducts(productsFound.data))
+      .catch((err) => {
+        const error = err.response;
+        if(error.status === 401) return goToLoginPage();
+        if(error.status === 403) return goToProductPage();
+      })
+    })();
+  }, [tag]);
 
   return (
     <div id="products-page-container">
         <Title 
           margin="15px 0px" 
-          text={tag}
+          text={title}
         />
         <div className="container-of-products-info">
-          <QuantityOfProducts/>
+          <QuantityOfProducts quantity={products.length || 0}/>
           <SelectTags 
             onChange={(e:any) => setTag(e.target.value)}
             tags={tags} 
@@ -25,7 +45,10 @@ const AllProducts = () => {
           />
         </div>
         <div className="all-products-container">
-          <MockProducts/>
+          <Products 
+            products={products}
+            tag={tag}
+          />
         </div>
       </div>
   );
