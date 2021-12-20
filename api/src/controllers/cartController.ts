@@ -15,7 +15,7 @@ route.post('/add', authUser ,async (req:any, res) => {
     const cartOwner = req.session.user.username;
     await cart.add(cartOwner, {
       name:req.body.name,
-      quantity:req.body.quantity
+      quantity:1
     });
     res.status(201).send();
   }

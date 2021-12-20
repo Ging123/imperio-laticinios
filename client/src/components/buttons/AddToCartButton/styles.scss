@@ -1,5 +1,4 @@
-.add-to-card-button {
-  background:var(--main-orange);
+.add-cart-button {
   border:none;
   border-radius:6px;
   box-shadow:1px 1px 5px gray;
@@ -8,4 +7,14 @@
   margin:15px 0px;
   padding:10px;
   width:90%;
+}
+
+.add-to-card-button {
+  @extend .add-cart-button;
+  background:var(--main-orange);
+}
+
+.add-to-card-button-loading {
+  @extend .add-cart-button;
+  background:gray;
 }

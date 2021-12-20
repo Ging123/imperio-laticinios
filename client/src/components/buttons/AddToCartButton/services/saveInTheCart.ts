@@ -1,55 +1,17 @@
-interface productData {
-  description:string;
-  name:string;
-  price:number;
-}
+import config from "../../../../config";
+import axios from "axios";
 
-export default function saveInTheCard(product:productData) {
-  if(productWasAlredyAdded(product)) return;
-  addProductToCard(product);
-}
-
-function productWasAlredyAdded(product:productData) {
-  if(!existSomeProductInCard()) return false;
-  const allProducts = getAllProductsInCard();
-  for(let i = 0; i < allProducts.length; i++) {
-    if(allProducts[i].name === product.name) return true;
-  }
-  return false;
-}
-
-function getAllProductsInCard() {
-  const cardStr = localStorage.getItem('card');
-  if(!cardStr) return false;
-  const products = JSON.parse(cardStr);
-  return products
-}
-
-function addProductToCard(product:productData) {
-  if(existSomeProductInCard()) return addANewProduct(product); 
-  addFirstProductInTheCard(product);
-}
-
-function existSomeProductInCard() {
-  const cardWasFound = localStorage.getItem('card');
-  if(cardWasFound) return true
-  return false;
-}
-
-function addANewProduct(product:productData) {
-  const card = getAllProductsInCard();
-  card.push(product);
-  updateCard(card)
-}
-
-function updateCard(newCard:any) {
-  newCard = JSON.stringify(newCard)
-  localStorage.removeItem('card');
-  localStorage.setItem('card', newCard);
-}
-
-function addFirstProductInTheCard(product:productData) {
-  const card = [product]
-  const str_card = JSON.stringify(card);
-  localStorage.setItem('card', str_card);
+export default async function saveInTheCard(name:string, history:any, setClasses:any) {
+  const url = `${config.API_HOST}cart/add`;
+  const data = {name:name}
+  setClasses('add-to-card-button-loading');
+  await axios.post(url, data, {withCredentials:true})
+  .catch((err) => {
+    const error = err.response;
+    if(error.status === 401) return history.push('/');
+    alert(error.data);
+  })
+  .finally(() => {
+    setClasses('add-to-card-button darker-on-hover-or-click');
+  })
 }

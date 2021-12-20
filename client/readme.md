@@ -9,6 +9,7 @@ com typescript.
 
 Para se usar esse front end é necessario que você execute os seguintes comandos
 ```
+cd client
 npm install
 npm run start
 ```
