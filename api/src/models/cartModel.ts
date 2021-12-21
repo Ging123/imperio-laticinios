@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 interface product {
   name:string;
   quantity:number;
+  price?:number;
 }
 
 export default class CartModel {

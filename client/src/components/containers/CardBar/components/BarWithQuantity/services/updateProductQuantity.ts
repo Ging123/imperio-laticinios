@@ -12,7 +12,6 @@ async function updateProductQuantity(name:string, quantity:number) {
     if(quantity === 0) { 
       const quantityElement = document.getElementById('quantity')!;
       const quantity = parseInt(quantityElement.textContent!) - 1;
-      console.log(quantityElement.textContent) 
       quantityElement.textContent! = `${quantity}`; 
     }
   });

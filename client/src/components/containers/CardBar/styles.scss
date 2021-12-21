@@ -51,10 +51,38 @@
 .product-in-the-cart-name {
   color:black;
   font: {
-    size:18px;
+    size:16px;
     weight:600;
   }
+  margin-bottom:10px;
   text-transform:uppercase;
+}
+
+.card-bar-body {
+  align-items:center;
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+
+.product-price {
+  font-size:14px;
+}
+
+.remove-option {
+  font-size:14px;
+
+  &:hover {
+    cursor:pointer;
+    opacity:.9;
+    text-decoration:underline;
+  }
+
+  &:active {
+    cursor:pointer;
+    opacity:.6;
+    text-decoration:underline;
+  }
 }
 
 @media (max-width:950px) {

@@ -5,6 +5,9 @@ export default class AddToCartUseCase extends Base {
   
   public async add(ownerUsername:string, product:product) {
     const userHasAnCart = await this.cart.findByOwner(ownerUsername);
+    const productToAdd:any = await this.product.findOneByName(product.name);
+    if(!productToAdd) throw exception("Esse produto não existe");
+    product.price = productToAdd.price;
     if(userHasAnCart) return await this.addANewProductToTheCard(ownerUsername, product);
     await this.cart.create(ownerUsername, product);
   }

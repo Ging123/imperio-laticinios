@@ -42,7 +42,7 @@ const CardBar = (props:props) => {
     <>
       <div className='card-bar'>
         <div className="card-text">Carrinho</div>
-        <div className="items-quantity">
+          <div className="items-quantity">
           <span>(</span>
           <span id="quantity">{productsQuantity}</span>
           {` itens registrados)`}
@@ -56,7 +56,8 @@ const CardBar = (props:props) => {
             key={data.name} 
             product={data}
           />
-          )
+          
+          );
         })
         }
       </div>

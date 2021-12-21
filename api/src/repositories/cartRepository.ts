@@ -3,6 +3,7 @@ import CartModel from '../models/cartModel';
 interface product {
   name:string;
   quantity:number;
+  price?:number;
 }
 
 export default class CartRepository extends CartModel {

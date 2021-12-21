@@ -4,6 +4,12 @@
   display:flex;
   flex-direction:row;
   justify-content:space-between;
-  width:150px;
+  width:120px;
   padding:10px;
+}
+
+@media (max-width:565px) {
+  .container-of-product-quantity {
+    width:80px;
+  }
 }

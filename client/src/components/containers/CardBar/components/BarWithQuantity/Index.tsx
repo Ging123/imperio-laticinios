@@ -39,12 +39,12 @@ const BarWithQuantity = (props:props) => {
     {props.quantity &&
     <div className='container-of-product-quantity'>
       <i 
-        className="fas fa-minus darker-on-hover-or-click"
+        className="fas fa-minus orange_on_hover"
         onClick={() => remove()}
       />
       <div>{props.quantity}</div>
       <i 
-        className="fas fa-plus darker-on-hover-or-click"
+        className="fas fa-plus orange_on_hover"
         onClick={() => add()}
       />
     </div>

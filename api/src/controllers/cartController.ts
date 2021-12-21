@@ -50,7 +50,7 @@ route.get('/', authUser, async (req:any, res) => {
   }
 });
 
-route.delete('/remove', authUser, async (req:any, res) => {
+route.delete('/', authUser, async (req:any, res) => {
   try {
     const cart = new RemoveOfTheCartUseCase();
     const cartOwner = req.session.user.username;
