@@ -2,6 +2,7 @@ import updateProductQuantity from './services/updateProductQuantity';
 import { Dispatch, SetStateAction, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './styles.scss';
+import calculateTotal from '../../services/calculateTotal';
 
 interface props {
   quantity:number;
@@ -16,7 +17,10 @@ const BarWithQuantity = (props:props) => {
 
   async function remove() {
     await updateProductQuantity(props.name, props.quantity-1)
-    .then(() => props.setQuantity(props.quantity-1))
+    .then(() => {
+      props.setQuantity(props.quantity-1)
+      calculateTotal();
+    })
     .catch((err) => {
       const error = err.response;
       if(error.status === 401) return goToLoginPage();
@@ -26,7 +30,10 @@ const BarWithQuantity = (props:props) => {
 
   async function add() {
     await updateProductQuantity(props.name, props.quantity+1)
-    .then(() => props.setQuantity(props.quantity+1))
+    .then(() => {
+      props.setQuantity(props.quantity+1)
+      calculateTotal();
+    })
     .catch((err) => {
       const error = err.response;
       if(error.status === 401) return goToLoginPage();
@@ -42,7 +49,7 @@ const BarWithQuantity = (props:props) => {
         className="fas fa-minus orange_on_hover"
         onClick={() => remove()}
       />
-      <div>{props.quantity}</div>
+      <div className='product-quantity'>{props.quantity}</div>
       <i 
         className="fas fa-plus orange_on_hover"
         onClick={() => add()}

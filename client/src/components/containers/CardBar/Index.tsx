@@ -6,6 +6,7 @@ import Modal from '../Modal/Index';
 import { useEffect, useState } from 'react';
 import './styles.scss';
 import { useHistory } from 'react-router-dom';
+import ProductsTotal from './components/ProductsTotal/Index';
 
 interface props {
   hide:() => void;
@@ -50,15 +51,18 @@ const CardBar = (props:props) => {
         {
         cardData.products
         &&
-        cardData.products.map((data:any) => {
+        <>
+        {cardData.products.map((data:any) => {
           return (
           <CreateProductsInTheCard 
             key={data.name} 
             product={data}
           />
-          
           );
         })
+        }
+        <ProductsTotal/>
+        </>
         }
       </div>
       <Modal 

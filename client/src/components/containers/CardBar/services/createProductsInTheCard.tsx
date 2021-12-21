@@ -37,7 +37,10 @@ export default function CreateProductsInTheCard(props:props) {
           <div className='remove-option orange_on_hover' onClick={remove}>
             remover
           </div>
-          <div className="product-price">{props.product.price}R$</div>
+          <div className="flex-row">
+            <div className="product-price">{props.product.price}</div>
+            <span style={{fontSize:'14px'}}>R$</span>
+          </div>
         </div>
       </div>
     }
