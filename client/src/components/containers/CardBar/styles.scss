@@ -13,6 +13,7 @@
   height:100vh;
   position:fixed;
   right:-50%;
+  padding:15px;
   top:0px;
   transition:right .2s ease;
   width:450px;
@@ -35,7 +36,25 @@
 
 .items-quantity {
   font-size:16px;
+  margin-bottom:30px;
   text-align:center;
+}
+
+.container-of-product-in-the-cart {
+  border-top:1px solid gray;
+  display:flex;
+  flex-direction:column;
+  padding:10px;
+  width:100%;
+}
+
+.product-in-the-cart-name {
+  color:black;
+  font: {
+    size:18px;
+    weight:600;
+  }
+  text-transform:uppercase;
 }
 
 @media (max-width:950px) {

@@ -13,6 +13,10 @@ const ImageSquare = () => {
   useEffect(() => { setImagePosition(location.pathname) }, [location]);
   return createPortal ( 
     <div id='image-square'>
+      <div className='delivery-text'>
+        <div className='title-text'>Laticínios delivery</div>
+        <div className='sub'>Os melhores laticínios de feira de santana</div>
+      </div>
       <Modal background="#ff66008f"/>
       <Images/>
     </div>,

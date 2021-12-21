@@ -24,6 +24,28 @@
   }
 }
 
+.delivery-text {
+  color:white;
+  left:50%;
+  position:absolute;
+  text-align:center;
+  top:50%;
+  transform:translate(-50%, -50%);
+  z-index: 100;
+
+  .title-text {
+    font: {
+      size:50px;
+      weight:600;
+    }
+  }
+
+  .sub {
+    font-size:18px;
+    margin-top:20px;
+  }
+}
+
 @media (max-width:1070px) {
   #image-square {
     display:none;

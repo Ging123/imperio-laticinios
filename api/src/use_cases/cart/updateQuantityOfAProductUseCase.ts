@@ -28,6 +28,6 @@ export default class UpdateQuantityOfAProductUseCase extends Base {
   private async updateCart(cart:any, index:number, quantity:number) {
     if(quantity === 0) cart.products.splice(index, 1);
     else cart.products[index].quantity = quantity;
-    await cart.save();
+    await this.cart.update(cart);
   }
 }

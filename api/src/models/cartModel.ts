@@ -45,4 +45,10 @@ export default class CartModel {
       .then((cart) => sucess(cart));
     });
   }
+
+  public async update(cart:any) {
+    const query = {usernameOfOwner:cart.usernameOfOwner};
+    const data = {$set:{products:cart.products}};
+    await this.cartModel.updateOne(query, data);
+  }
 }

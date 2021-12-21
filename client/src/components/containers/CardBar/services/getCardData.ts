@@ -1,6 +1,7 @@
-export default function getCardData() {
-  const cardStr = localStorage.getItem("card");
-  if(!cardStr) return [];
-  const card = JSON.parse(cardStr);
-  return card;
+import config from "../../../../config";
+import axios from "axios";
+
+export default async function getCardData() {
+  const url = `${config.API_HOST}cart`;
+  return await axios.get(url, {withCredentials:true});
 }
