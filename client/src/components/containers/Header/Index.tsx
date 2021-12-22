@@ -13,15 +13,12 @@ const Header = () => {
       window.removeEventListener('scroll', changeColorWhenNeeded);
     }
   }, []);
-
+  //<Search/> I DIDNT HAVE TIME TO IMPLEMENT IT :(
   return (
     <header className='header' id='header'>
-      <Search/>
+      <Cart/>
       <Logo content="Laticínios Delivery"/> 
-      <div>
-        <Cart/>
-        <Logout/>
-      </div>
+      <Logout/>
     </header>
   )
 }
