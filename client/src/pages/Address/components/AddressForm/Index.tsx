@@ -38,7 +38,7 @@ const AddressForm = () => {
         leftIconeClass='fas fa-road'
         margin='10px 0px'
         onChange={(e) => setStreet(e.target.value)}
-        placeholder='Cidade'
+        placeholder='Rua'
         required={true}
         value={street}
       />
