@@ -7,6 +7,8 @@ import { useEffect, useState } from 'react';
 import './styles.scss';
 import { useHistory } from 'react-router-dom';
 import ProductsTotal from './components/ProductsTotal/Index';
+import MainButton from '../../buttons/MainButton/Index';
+import createANewOrder from './services/createANewOrder';
 
 interface props {
   hide:() => void;
@@ -17,6 +19,7 @@ const CardBar = (props:props) => {
   const history = useHistory();
   const goToLoginPage = () => history.push('/');
   const goToProductPage = () => history.push('/products');
+  const goToAddressPage = () => history.push('/address');
 
   useEffect(() => {
     setTimeout(animateMove, 1);
@@ -36,6 +39,15 @@ const CardBar = (props:props) => {
       document.body.style.overflow = "visible";
     }
   }, []);
+
+  async function order() {
+    await createANewOrder()
+    .then(() => {
+      alert('pedido feito');
+      props.hide();
+    })
+    .catch(() => goToAddressPage());
+  }
 
   const productsQuantity = cardData.products ? cardData.products.length : 0;
 
@@ -62,6 +74,10 @@ const CardBar = (props:props) => {
         })
         }
         <ProductsTotal/>
+        <MainButton 
+          onClick={order}
+          text='Fazer Pedido'
+        />
         </>
         }
       </div>

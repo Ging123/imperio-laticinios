@@ -1,0 +1,23 @@
+#address-page {
+  left:50%;
+  position:absolute;
+  top:50%;
+  transform:translate(-50%, -50%);
+  width:450px;
+}
+
+#sub-text-of-address {
+  color:gray;
+  font: {
+    size:18px;
+    weight:600;
+  }
+  text-align:center;
+  margin:20px 0px;
+}
+
+@media(max-width:451px) {
+  #address-page {
+    width:100%;
+  }
+}

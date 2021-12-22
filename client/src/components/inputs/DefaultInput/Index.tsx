@@ -9,8 +9,9 @@ interface props {
   maxLength?:number;
   onChange:(e:React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?:string;
-  type?:'email'|'password'|'text';
-  value:string;
+  required?:boolean;
+  type?:'email'|'number'|'password'|'text';
+  value?:string|number;
 }
 
 const DefaultInput = (props:props) => {
@@ -24,6 +25,7 @@ const DefaultInput = (props:props) => {
         onChange={ props.onChange }
         placeholder={ props.placeholder }
         ref={inputRef}
+        required={props.required}
         type={ props.type || 'text' } 
         value={ props.value }
       />

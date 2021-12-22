@@ -40,7 +40,7 @@ export default class OrderModel {
   protected createNewOrder(order:order) {
     return new this.orderModel({
       product:order.product,
-      price:order.price.toFixed,
+      price:order.price,
       quantity:order.quantity,
       client:order.client,
       address:order.address

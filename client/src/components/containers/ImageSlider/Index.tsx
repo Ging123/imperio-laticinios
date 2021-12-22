@@ -11,7 +11,7 @@ const ImageSlider = () => {
     <div className="image-slider" id="image-slider">
       <Image
         className="show"
-        description="Os melhores laticínios de feira de Santana, agora tem um site"
+        description="Os melhores laticínios de Feira de Santana, agora tem um site"
         id="image-1"
         title="Laticínios Delivery"
       />
