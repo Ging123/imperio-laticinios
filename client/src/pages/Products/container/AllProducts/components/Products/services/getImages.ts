@@ -48,7 +48,6 @@ import yogurt2 from '../images/yogurt/berries-nondairy-yogurt.jpg';
 import yogurt3 from '../images/yogurt/download (1).jpg';
 import yogurt4 from '../images/yogurt/download.jpg';
 import yogurt5 from '../images/yogurt/easy-greek-yogurt-dips-familyfreshmeals.com--483x500.png';
-import yogurt6 from '../images/yogurt/gettyimages-1200110535-612x612.jpg';
 import yogurt7 from '../images/yogurt/images (1).jpg';
 import yogurt8 from '../images/yogurt/images.jpg';
 import yogurt9 from '../images/yogurt/No-brand-to-date-has-really-nailed-Greek-in-plant-based-yogurt-until-now-.-Danone-unveils-Silk-Greek-style.jpg';
@@ -63,7 +62,7 @@ butter8, butter9, butter10];
 const creamCheese = [creamCheese1, creamCheese2, creamCheese3, creamCheese4,
 creamCheese5, creamCheese6, creamCheese7, creamCheese8, creamCheese9, 
 creamCheese10];
-const yogurt = [yogurt1, yogurt2, yogurt3, yogurt4, yogurt5, yogurt6, yogurt7,
+const yogurt = [yogurt1, yogurt2, yogurt3, yogurt4, yogurt5, yogurt7,
 yogurt8, yogurt9, yogurt10];
 
 export default function getImages(tag:string, quantity:number) {
